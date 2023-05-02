@@ -6,6 +6,7 @@ int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
+
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -13,12 +14,15 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
+    Array<int> mirror_copy = numbers;
+    for (unsigned int p = 0; p < mirror_copy.size(); p++){
+        std::cout << mirror_copy[p] << std::endl;
+    }
     //SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
-
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
